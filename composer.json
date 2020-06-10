@@ -1,0 +1,26 @@
+{
+    "name": "nldou\/xiaoe",
+    "description": "sdk for xiaoeyun",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "luzy",
+            "email": "zhaoyang.lu@nldou.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nldou\\Xiaoe\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nldou\\Xiaoe\\ServiceProvider"
+            ]
+        }
+    }
+}
