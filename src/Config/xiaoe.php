@@ -10,5 +10,6 @@ return [
     'clientid' => env('XIAOE_CLIENT_ID', ''),
     'secret_key' => env('XIAOE_SECRET_KEY', ''),
     'token' => env('XIAOE_TOKEN', ''),
-    'aes_key' => env('XIAOE_AES_KEY', '')
+    'aes_key' => env('XIAOE_AES_KEY', ''),
+    'refund_notify_url' => env('XIAOE_REFUND_NOTIFY_URL', '')
 ];
