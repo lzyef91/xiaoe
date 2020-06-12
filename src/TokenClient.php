@@ -80,5 +80,10 @@ class TokenClient
         return $res['data'];
     }
 
+    public function getAppId()
+    {
+        return $this->appid;
+    }
+
 
 }
