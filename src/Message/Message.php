@@ -29,7 +29,6 @@ class Message
      */
     public function __construct($msg)
     {
-        logger($msg);
         $this->msgxml = new \DOMDocument();
 		$this->msgxml->loadXML($msg);
     }
