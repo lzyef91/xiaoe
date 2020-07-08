@@ -50,7 +50,7 @@ class Exercises extends WebApi
         }
 
         $params['exercise_book_id'] = $options['exercise_book_id'];
-        $params['page_size'] = array_key_exists('page_size', $options) ? $options['page_size'] : 1;
+        $params['page_size'] = array_key_exists('page_size', $options) ? $options['page_size'] : 20;
         $params['page_index'] = array_key_exists('page', $options) ? $options['page'] : 1;
         $params['search_content'] = array_key_exists('search', $options) ? $options['search'] : 1;
 
@@ -79,7 +79,7 @@ class Exercises extends WebApi
 
         $params['exercise_book_id'] = $options['exercise_book_id'];
         $params['exercise_id'] = $options['exercise_id'];
-        $params['page_size'] = array_key_exists('page_size', $options) ? $options['page_size'] : 1;
+        $params['page_size'] = array_key_exists('page_size', $options) ? $options['page_size'] : 20;
         $params['page_index'] = array_key_exists('page', $options) ? $options['page'] : 1;
 
         return $this->request($url, $method, $cookie, $params);
