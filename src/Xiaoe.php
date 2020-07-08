@@ -9,6 +9,7 @@ use Nldou\Xiaoe\Api\OrderApi;
 
 use Nldou\Xiaoe\Exceptions\InvalidWebException;
 use Nldou\Xiaoe\Web\Comments;
+use Nldou\Xiaoe\Web\Exercises;
 use Nldou\Xiaoe\Message\Server;
 
 class Xiaoe
@@ -39,7 +40,8 @@ class Xiaoe
      * @var array
      */
     private $webProviders = [
-        'comments' => Comments::class
+        'comments' => Comments::class,
+        'exercises' => Exercises::class
     ];
 
     /**
