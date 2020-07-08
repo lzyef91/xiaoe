@@ -40,6 +40,12 @@ class WebApi
             throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}");
         }
 
+        // 业务错误
+        if ($res['code'] != 0) {
+            $msg = $res['msg'];
+            throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}");
+        }
+
         // 返回结果
         return $res['data'];
     }
