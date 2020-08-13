@@ -10,6 +10,7 @@ use Nldou\Xiaoe\Api\OrderApi;
 use Nldou\Xiaoe\Exceptions\InvalidWebException;
 use Nldou\Xiaoe\Web\Comments;
 use Nldou\Xiaoe\Web\Exercises;
+use Nldou\Xiaoe\Web\Auth;
 use Nldou\Xiaoe\Message\Server;
 
 class Xiaoe
@@ -41,7 +42,8 @@ class Xiaoe
      */
     private $webProviders = [
         'comments' => Comments::class,
-        'exercises' => Exercises::class
+        'exercises' => Exercises::class,
+        'auth' => Auth::class
     ];
 
     /**

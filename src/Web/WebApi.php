@@ -19,7 +19,8 @@ class WebApi
         $this->client = new HttpClient();
     }
 
-    protected function request(string $url, string $method, string $cookie, array $params = [])
+    protected function request(string $url, string $method, string $cookie,
+        array $params = [], bool $returnResponseInstance = false)
     {
         // api请求
         try {
@@ -29,11 +30,16 @@ class WebApi
             $request = new Request($method, $url);
             // 请求配置
             $options = [
-                'headers' => ['Cookie' => $cookie],
                 'json' => $params
             ];
+            if (!empty($cookie)) {
+                $options = array_merge($options, ['headers' => ['Cookie' => $cookie]]);
+            }
             // 响应对象
             $response = $this->client->send($request, $options);
+
+            if ($returnResponseInstance) return $response;
+
             $res = \json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             $msg = $e->getMessage();
