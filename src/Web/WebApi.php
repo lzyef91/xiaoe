@@ -38,13 +38,13 @@ class WebApi
             // 响应对象
             $response = $this->client->send($request, $options);
 
-            if ($returnResponseInstance) return $response;
-
-            $res = \json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             $msg = $e->getMessage();
             throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}");
         }
+
+        // 格式化结果
+        $res = \json_decode($response->getBody(), true);
 
         // 业务错误
         if ($res['code'] != 0) {
@@ -53,6 +53,6 @@ class WebApi
         }
 
         // 返回结果
-        return $res['data'];
+        return $returnResponseInstance ? $response : $res['data'];
     }
 }
