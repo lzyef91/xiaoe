@@ -4,11 +4,10 @@ namespace Nldou\Xiaoe;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Nldou\Xiaoe\Message\Server;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
-class ServiceProvider extends LaravelServiceProvider
+class ServiceProvider extends LaravelServiceProvider implements DeferrableProvider
 {
-    protected $defer = true;
-
     /**
      * Boot the provider.
      */
