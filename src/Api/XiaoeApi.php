@@ -44,14 +44,14 @@ class XiaoeApi
             $res = \json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             $msg = $e->getMessage();
-            throw new HttpClientException("request-error-{$api}-{$apiVersion}-{$msg}");
+            throw new HttpClientException("request-error-{$api}-{$apiVersion}-{$msg}", $e->getCode());
         }
 
         // 请求错误处理
         $code = $res['code'];
         $msg = $res['msg'];
         if ($code != 0) {
-            throw new HttpClientException("ApiHttpError-{$api}-{$apiVersion}-{$code}-{$msg}");
+            throw new HttpClientException("ApiHttpError-{$api}-{$apiVersion}-{$code}-{$msg}", $code);
         }
 
         // 返回结果

@@ -40,7 +40,7 @@ class WebApi
 
         } catch (\Exception $e) {
             $msg = $e->getMessage();
-            throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}");
+            throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}", $e->getCode());
         }
 
         // 格式化结果
@@ -49,7 +49,7 @@ class WebApi
         // 业务错误
         if ($res['code'] != 0) {
             $msg = $res['msg'];
-            throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}");
+            throw new HttpClientException("web-api-request-error-{$method}-{$url}-{$msg}", $res['code']);
         }
 
         // 返回结果
